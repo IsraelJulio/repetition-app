@@ -1,29 +1,37 @@
 <div class="cards">
-  <p-card
-    header="Advanced Card"
-    subheader="Card Subheader"
-    [style]="{ width: '360px' }"
+  <ng-container
+    *ngFor="let quiz of quizList; trackBy: trackByTitle; let i = index"
   >
-    <ng-template pTemplate="header">
-      <img
-        alt="Card"
-        src="https://primefaces.org/cdn/primeng/images/usercard.png"
-      />
-    </ng-template>
-    <p>
-      Lorem ipsum dolor sit amet, consectetur adipisicing elit. Inventore sed
-      consequuntur error repudiandae numquam deserunt quisquam repellat libero
-      asperiores earum nam nobis, culpa ratione quam perferendis esse,
-      cupiditate neque quas!
-    </p>
-    <ng-template pTemplate="footer">
-      <p-button label="Save" icon="pi pi-check"></p-button>
-      <p-button
-        label="Cancel"
-        icon="pi pi-times"
-        styleClass="p-button-secondary"
-        [style]="{ 'margin-left': '.5em' }"
-      ></p-button>
-    </ng-template>
-  </p-card>
+    <p-card
+      header="{{ quiz.title }}"
+      subheader="{{ quiz.description }}"
+      [style]="{ width: '360px' }"
+      [id]="i + 1"
+    >
+      <ng-template pTemplate="header">
+        <img
+          alt="Card"
+          src="https://primefaces.org/cdn/primeng/images/usercard.png"
+        />
+      </ng-template>
+      <ng-template pTemplate="footer">
+        <div
+          class="buttons"
+          style="display: flex; justify-content: space-between"
+        >
+          <p-button
+            label="Save"
+            icon="pi pi-check"
+            styleClass="p-button-success"
+            (onClick)="play(quiz.id)"
+          ></p-button>
+          <p-button
+            label="Edit"
+            icon="pi pi-pencil"
+            [routerLink]="['/quiz', quiz.id]"
+          ></p-button>
+        </div>
+      </ng-template>
+    </p-card>
+  </ng-container>
 </div>

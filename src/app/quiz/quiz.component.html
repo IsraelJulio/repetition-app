@@ -4,11 +4,11 @@
   </div>
 </div>
 <form [formGroup]="quizForm" (ngSubmit)="onSubmit()" autocomplete="off">
-  <table style="width: 100%">
+  <table style="display: flex; flex-wrap: wrap">
     <tr>
       <td>
         <div class="row" id="firstRow">
-          <div class="col">
+          <div class="col" style="width: 600px">
             <div class="p-inputgroup">
               <span class="p-inputgroup-addon">
                 <i class="pi pi-bookmark-fill"></i>
@@ -22,6 +22,20 @@
               />
             </div>
           </div>
+        </div>
+      </td>
+      <td class="col" style="width: 1600px">
+        <div class="p-inputgroup">
+          <span class="p-inputgroup-addon">
+            <i class="pi pi-align-justify"></i>
+          </span>
+          <input
+            type="text"
+            id="description"
+            pInputText
+            formControlName="description"
+            placeholder="Description"
+          />
         </div>
       </td>
     </tr>

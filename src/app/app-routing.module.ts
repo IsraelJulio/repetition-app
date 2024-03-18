@@ -13,6 +13,10 @@ const routes: Routes = [
     component: QuizComponent,
   },
   {
+    path: 'quiz/:id',
+    component: QuizComponent,
+  },
+  {
     path: '**',
     redirectTo: '',
   },

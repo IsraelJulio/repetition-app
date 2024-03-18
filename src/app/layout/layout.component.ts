@@ -21,6 +21,17 @@ export class LayoutComponent implements OnInit {
           },
         ],
       },
+      {
+        label: 'Archieve',
+        icon: 'pi pi-fw pi-calendar-times',
+        items: [
+          {
+            label: 'Quiz',
+            icon: 'pi pi-fw pi-calendar-minus',
+            url: 'home',
+          },
+        ],
+      },
     ];
   }
 }

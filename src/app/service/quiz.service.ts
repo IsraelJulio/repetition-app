@@ -15,4 +15,9 @@ export class QuizService {
   constructor(protected http: HttpClient) {}
 
   post = (quiz: Quiz) => this.http.post(`${environment.ApiUrl}/Quiz`, quiz);
+  put = (quiz: Quiz) =>
+    this.http.put(`${environment.ApiUrl}/Quiz/${quiz.id}`, quiz);
+  get = () => this.http.get<Quiz[]>(`${environment.ApiUrl}/Quiz`);
+  getById = (id: string) =>
+    this.http.get<Quiz>(`${environment.ApiUrl}/Quiz/${id}`);
 }
