@@ -20,12 +20,26 @@ export class LayoutComponent implements OnInit {
     this.quizzes.forEach((quiz) => {
       let menuItem: MenuItem = {};
       menuItem.label = quiz.title;
-      menuItem.icon = 'pi pi-fw pi-plus';
+      menuItem.icon = 'pi pi-file-o';
       menuItem.url = `quiz/${quiz.id}`;
+      menuItem.id = quiz.id.toString();
       this.quizItens.push(menuItem);
     });
 
     this.items = [
+      {
+        label: 'Play',
+        icon: 'pi pi-android',
+        items: [
+          {
+            label: 'Games',
+            icon: 'pi pi-fw pi-plus',
+            items: this.quizItens.map((item) => {
+              return { ...item, url: `play/${item.id}` };
+            }),
+          },
+        ],
+      },
       {
         label: 'File',
         icon: 'pi pi-fw pi-file',
@@ -42,7 +56,7 @@ export class LayoutComponent implements OnInit {
         icon: 'pi pi-fw pi-calendar-times',
         items: [
           {
-            label: 'Quiz',
+            label: 'Edit Quiz',
             icon: 'pi pi-fw pi-calendar-minus',
             url: 'home',
             items: this.quizItens,

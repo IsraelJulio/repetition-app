@@ -18,8 +18,17 @@ import { RadioButtonModule } from 'primeng/radiobutton';
 import { FormControl, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { MessageService } from 'primeng/api';
+import { PlayComponent } from './play/play.component';
+import { ProgressBarModule } from 'primeng/progressbar';
+import { ToastModule } from 'primeng/toast';
 @NgModule({
-  declarations: [AppComponent, QuizComponent, HomeComponent, LayoutComponent],
+  declarations: [
+    AppComponent,
+    QuizComponent,
+    HomeComponent,
+    LayoutComponent,
+    PlayComponent,
+  ],
   imports: [
     BrowserModule,
     ButtonModule,
@@ -35,6 +44,8 @@ import { MessageService } from 'primeng/api';
     RadioButtonModule,
     ReactiveFormsModule,
     HttpClientModule,
+    ProgressBarModule,
+    ToastModule,
   ],
   providers: [MessageService],
   bootstrap: [AppComponent],

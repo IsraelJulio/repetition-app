@@ -10,11 +10,13 @@ import { Quiz } from '../domain/quiz';
 import { QuizService } from '../service/quiz.service';
 import { MessageService } from 'primeng/api';
 import { ActivatedRoute, Router } from '@angular/router';
+
 let quiz: Quiz;
 @Component({
   selector: 'app-quiz',
   templateUrl: './quiz.component.html',
   styleUrls: ['./quiz.component.scss'],
+  providers: [MessageService],
 })
 export class QuizComponent implements OnInit {
   addQuestionForm(front: string = '', back: string = ''): FormGroup {
@@ -24,6 +26,8 @@ export class QuizComponent implements OnInit {
     });
   }
   quizForm!: FormGroup;
+  sendForm: boolean = false;
+  value: number = 0;
   constructor(
     private fb: UntypedFormBuilder,
     private quizService: QuizService,
@@ -73,17 +77,18 @@ export class QuizComponent implements OnInit {
       );
     }
   }
-  onSubmit() {
+  async onSubmit() {
     let quiz: Quiz = this.quizForm.getRawValue();
+    this.sendForm = true;
     if (quiz.id != 0) {
       this.quizService.put(quiz).subscribe({
-        next: (response) => {
+        next: async (response) => {
           this.messageService.add({
             severity: 'success',
-            summary: 'Created',
-            life: 4000,
+            summary: 'Success',
+            detail: 'Quiz updated',
           });
-
+          await this.delay(1000);
           this.router.navigate(['']);
         },
         error: (err) => {
@@ -97,13 +102,13 @@ export class QuizComponent implements OnInit {
       });
     } else {
       this.quizService.post(quiz).subscribe({
-        next: (response) => {
+        next: async (response) => {
           this.messageService.add({
-            severity: 'success',
-            summary: 'Created',
-            life: 4000,
+            severity: 'info',
+            summary: 'Success',
+            detail: 'Quiz Created',
           });
-
+          await this.delay(1000);
           this.router.navigate(['']);
         },
         error: (err) => {
@@ -119,9 +124,11 @@ export class QuizComponent implements OnInit {
   }
   getControls() {
     if (quiz) {
-      console.log(this.quizForm);
       return (this.quizForm.get('questions') as FormArray).controls;
     }
     return (this.quizForm.get('questions') as FormArray).controls;
+  }
+  async delay(ms: number) {
+    return new Promise((resolve) => setTimeout(resolve, ms));
   }
 }

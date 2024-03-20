@@ -4,4 +4,6 @@ export interface Question {
   back: string;
   rate: number;
   quizId: number;
+  rightQuestions: number;
+  wrongQuestions: number;
 }
