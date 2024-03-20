@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { MenuItem } from 'primeng/api';
+import { QuizService } from '../service/quiz.service';
+import { Quiz } from '../domain/quiz';
+import { lastValueFrom } from 'rxjs';
 
 @Component({
   selector: 'app-layout',
@@ -8,7 +11,20 @@ import { MenuItem } from 'primeng/api';
 })
 export class LayoutComponent implements OnInit {
   items: MenuItem[] = [];
-  ngOnInit() {
+  quizItens: MenuItem[] = [];
+  quizzes: Quiz[] = [];
+  constructor(private quizService: QuizService) {}
+  async ngOnInit() {
+    this.quizzes = await lastValueFrom(this.quizService.get());
+
+    this.quizzes.forEach((quiz) => {
+      let menuItem: MenuItem = {};
+      menuItem.label = quiz.title;
+      menuItem.icon = 'pi pi-fw pi-plus';
+      menuItem.url = `quiz/${quiz.id}`;
+      this.quizItens.push(menuItem);
+    });
+
     this.items = [
       {
         label: 'File',
@@ -29,6 +45,7 @@ export class LayoutComponent implements OnInit {
             label: 'Quiz',
             icon: 'pi pi-fw pi-calendar-minus',
             url: 'home',
+            items: this.quizItens,
           },
         ],
       },
