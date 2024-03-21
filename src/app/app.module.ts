@@ -21,6 +21,8 @@ import { MessageService } from 'primeng/api';
 import { PlayComponent } from './play/play.component';
 import { ProgressBarModule } from 'primeng/progressbar';
 import { ToastModule } from 'primeng/toast';
+import { CategoryComponent } from './category/category.component';
+import { TableModule } from 'primeng/table';
 @NgModule({
   declarations: [
     AppComponent,
@@ -28,6 +30,7 @@ import { ToastModule } from 'primeng/toast';
     HomeComponent,
     LayoutComponent,
     PlayComponent,
+    CategoryComponent,
   ],
   imports: [
     BrowserModule,
@@ -46,6 +49,7 @@ import { ToastModule } from 'primeng/toast';
     HttpClientModule,
     ProgressBarModule,
     ToastModule,
+    TableModule,
   ],
   providers: [MessageService],
   bootstrap: [AppComponent],

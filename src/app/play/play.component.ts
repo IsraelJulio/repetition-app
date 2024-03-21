@@ -1,3 +1,4 @@
+import { Category } from './../domain/category';
 import { Component, OnInit } from '@angular/core';
 import { QuizService } from '../service/quiz.service';
 import { Question } from '../domain/question';
@@ -60,9 +61,13 @@ export class PlayComponent implements OnInit {
           this.messageService.add({
             severity: 'info',
             summary: 'Success',
-            detail: 'Process Completed',
+            detail: 'Complete study',
           });
           clearInterval(interval);
+
+          this.quizService.put(this.quiz).subscribe((x) => {
+            this.router.navigate(['']);
+          });
         }
       }, 200);
     }

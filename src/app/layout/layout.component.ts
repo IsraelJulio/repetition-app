@@ -47,7 +47,10 @@ export class LayoutComponent implements OnInit {
           {
             label: 'New',
             icon: 'pi pi-fw pi-plus',
-            url: 'quiz',
+            items: [
+              { label: 'Quiz', icon: 'pi pi-file-o', url: 'quiz' },
+              { label: 'Category', icon: 'pi pi-sitemap', url: 'category' },
+            ],
           },
         ],
       },

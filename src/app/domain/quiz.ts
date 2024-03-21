@@ -1,3 +1,4 @@
+import { Category } from './category';
 import { Question } from './question';
 
 export interface Quiz {
@@ -5,4 +6,6 @@ export interface Quiz {
   title: string;
   description: string;
   questions: Array<Question>;
+  categoryId?: string;
+  category?: Category;
 }
