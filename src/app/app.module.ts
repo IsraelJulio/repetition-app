@@ -23,6 +23,8 @@ import { ProgressBarModule } from 'primeng/progressbar';
 import { ToastModule } from 'primeng/toast';
 import { CategoryComponent } from './category/category.component';
 import { TableModule } from 'primeng/table';
+import { DialogService, DynamicDialogModule } from 'primeng/dynamicdialog';
+import { CategoryEditComponent } from './category/category-edit/category-edit.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -31,6 +33,7 @@ import { TableModule } from 'primeng/table';
     LayoutComponent,
     PlayComponent,
     CategoryComponent,
+    CategoryEditComponent,
   ],
   imports: [
     BrowserModule,
@@ -50,8 +53,9 @@ import { TableModule } from 'primeng/table';
     ProgressBarModule,
     ToastModule,
     TableModule,
+    DynamicDialogModule,
   ],
-  providers: [MessageService],
+  providers: [MessageService, DialogService],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

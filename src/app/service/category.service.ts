@@ -15,4 +15,6 @@ export class CategoryService {
   get = () => this.http.get<Category[]>(`${environment.ApiUrl}/Category`);
   getById = (id: string) =>
     this.http.get<Category>(`${environment.ApiUrl}/Category/${id}`);
+  delete = (id: number) =>
+    this.http.delete(`${environment.ApiUrl}/Category/${id}`);
 }

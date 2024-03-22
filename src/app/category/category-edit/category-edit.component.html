@@ -1,0 +1,42 @@
+<form [formGroup]="categoryForm">
+  <div class="row">
+    <div class="card flex justify-content-center">
+      <div class="flex flex-column">
+        <input
+          type="text"
+          pInputText
+          formControlName="name"
+          class="form-control"
+          placeholder="Name"
+        />
+      </div>
+    </div>
+  </div>
+  <div class="row d-flex justify-content-center">
+    <div
+      class="buttons"
+      style="display: flex; justify-content: center; margin: 15px"
+    >
+      <p-button
+        label="Save"
+        *ngIf="dialogMode === 'Create' || dialogMode === 'Edit'"
+        (click)="handleSave()"
+        styleClass=" p-button-md p-button-success"
+        [disabled]="
+          !(
+            categoryForm.valid &&
+            (dialogMode === 'Create' || dialogMode === 'Edit')
+          )
+        "
+      >
+      </p-button>
+      <p-button
+        *ngIf="dialogMode === 'Delete'"
+        label="Delete"
+        styleClass="p-button-md p-button-danger w-100"
+        (click)="handleDelete()"
+      >
+      </p-button>
+    </div>
+  </div>
+</form>
