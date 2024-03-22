@@ -27,6 +27,10 @@ const routes: Routes = [
     component: PlayComponent,
   },
   {
+    path: 'play/:id/top/:top/category/:categoryId',
+    component: PlayComponent,
+  },
+  {
     path: 'category',
     component: CategoryComponent,
   },

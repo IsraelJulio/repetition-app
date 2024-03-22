@@ -13,6 +13,8 @@ export class CategoryService {
   put = (category: Category) =>
     this.http.put(`${environment.ApiUrl}/Category/${category.id}`, category);
   get = () => this.http.get<Category[]>(`${environment.ApiUrl}/Category`);
+  getAvailableCategory = () =>
+    this.http.get<Category[]>(`${environment.ApiUrl}/Quiz/Available`);
   getById = (id: string) =>
     this.http.get<Category>(`${environment.ApiUrl}/Category/${id}`);
   delete = (id: number) =>

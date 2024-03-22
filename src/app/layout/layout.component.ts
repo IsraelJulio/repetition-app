@@ -3,6 +3,8 @@ import { MenuItem } from 'primeng/api';
 import { QuizService } from '../service/quiz.service';
 import { Quiz } from '../domain/quiz';
 import { lastValueFrom } from 'rxjs';
+import { CategoryService } from '../service/category.service';
+import { Category } from '../domain/category';
 
 @Component({
   selector: 'app-layout',
@@ -12,10 +14,18 @@ import { lastValueFrom } from 'rxjs';
 export class LayoutComponent implements OnInit {
   items: MenuItem[] = [];
   quizItens: MenuItem[] = [];
+  categoryItens: MenuItem[] = [];
   quizzes: Quiz[] = [];
-  constructor(private quizService: QuizService) {}
+  categories: Category[] = [];
+  constructor(
+    private quizService: QuizService,
+    private categoryService: CategoryService
+  ) {}
   async ngOnInit() {
     this.quizzes = await lastValueFrom(this.quizService.get());
+    this.categories = await lastValueFrom(
+      this.categoryService.getAvailableCategory()
+    );
 
     this.quizzes.forEach((quiz) => {
       let menuItem: MenuItem = {};
@@ -26,17 +36,72 @@ export class LayoutComponent implements OnInit {
       this.quizItens.push(menuItem);
     });
 
+    this.categories.forEach((category) => {
+      let menuItem: MenuItem = {};
+      menuItem.label = category.name;
+      menuItem.icon = 'pi pi-tags';
+      menuItem.id = category.id.toString();
+      this.categoryItens.push(menuItem);
+    });
+
     this.items = [
       {
         label: 'Play',
         icon: 'pi pi-android',
         items: [
           {
-            label: 'Games',
-            icon: 'pi pi-fw pi-plus',
+            label: 'Quiz',
+            icon: 'pi pi-file-o',
             items: this.quizItens.map((item) => {
               return { ...item, url: `play/${item.id}` };
             }),
+          },
+          {
+            label: 'Category',
+            icon: 'pi pi-sitemap',
+            url: 'category',
+            items: [
+              {
+                label: 'Top 10',
+                icon: 'pi pi-clock',
+                items: this.categoryItens.map((item) => {
+                  return {
+                    ...item,
+                    url: `play/${item.id}/top/10/category/${item.id}`,
+                  };
+                }),
+              },
+              {
+                label: 'Top 25',
+                icon: 'pi pi-clock',
+                items: this.categoryItens.map((item) => {
+                  return {
+                    ...item,
+                    url: `play/${item.id}/top/25/category/${item.id}`,
+                  };
+                }),
+              },
+              {
+                label: 'Top 50',
+                icon: 'pi pi-clock',
+                items: this.categoryItens.map((item) => {
+                  return {
+                    ...item,
+                    url: `play/${item.id}/top/50/category/${item.id}`,
+                  };
+                }),
+              },
+              {
+                label: 'Top 100',
+                icon: 'pi pi-clock',
+                items: this.categoryItens.map((item) => {
+                  return {
+                    ...item,
+                    url: `play/${item.id}/top/100/category/${item.id}`,
+                  };
+                }),
+              },
+            ],
           },
         ],
       },

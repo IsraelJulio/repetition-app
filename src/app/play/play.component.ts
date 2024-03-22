@@ -30,9 +30,14 @@ export class PlayComponent implements OnInit {
   async ngOnInit() {
     this.route.paramMap.subscribe(async (params) => {
       let id = params.get('id') ?? '';
+      let top = params.get('top') ?? undefined;
+      let categoryId = params.get('categoryId') ?? undefined;
 
-      this.quiz = await lastValueFrom(this.quizService.getById(id));
-
+      if (!top) this.quiz = await lastValueFrom(this.quizService.getById(id));
+      else
+        this.quiz = await lastValueFrom(
+          this.quizService.getByCategory(top, categoryId)
+        );
       this.front = this.quiz.questions[this.index].front;
       this.back = this.quiz.questions[this.index].back;
     });

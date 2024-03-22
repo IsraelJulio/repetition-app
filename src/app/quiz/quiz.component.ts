@@ -10,6 +10,9 @@ import { Quiz } from '../domain/quiz';
 import { QuizService } from '../service/quiz.service';
 import { MessageService } from 'primeng/api';
 import { ActivatedRoute, Router } from '@angular/router';
+import { Category } from '../domain/category';
+import { lastValueFrom } from 'rxjs';
+import { CategoryService } from '../service/category.service';
 
 let quiz: Quiz;
 @Component({
@@ -28,18 +31,23 @@ export class QuizComponent implements OnInit {
   quizForm!: FormGroup;
   sendForm: boolean = false;
   value: number = 0;
+  categories: Category[] = [];
+  visible: boolean = false;
+  title: string = 'Create Quiz';
   constructor(
     private fb: UntypedFormBuilder,
     private quizService: QuizService,
     private messageService: MessageService,
     private router: Router,
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
+    private categoryService: CategoryService
   ) {}
-  ngOnInit(): void {
+  async ngOnInit() {
     this.quizForm = this.fb.group({
       title: ['', Validators.required],
       description: ['', Validators.required],
       id: [0],
+      categoryId: ['', Validators.required],
       questions: this.fb.array([this.addQuestionForm()]),
     });
     this.route.paramMap.subscribe((params) => {
@@ -48,6 +56,7 @@ export class QuizComponent implements OnInit {
         this.quizService.getById(id).subscribe({
           next: (response) => {
             this.quizForm.patchValue(response);
+            this.title = response.title;
             const questionsArray = this.quizForm.get('questions') as FormArray;
             while (questionsArray.length !== 0) {
               questionsArray.removeAt(0);
@@ -61,9 +70,9 @@ export class QuizComponent implements OnInit {
           },
           error: (error) => {},
         });
-      } else {
       }
     });
+    this.categories = await lastValueFrom(this.categoryService.get());
   }
 
   addNewRow(): void {
@@ -130,5 +139,29 @@ export class QuizComponent implements OnInit {
   }
   async delay(ms: number) {
     return new Promise((resolve) => setTimeout(resolve, ms));
+  }
+  handleDelete() {
+    this.quizService.delete(quiz.id).subscribe({
+      next: async (response) => {
+        this.messageService.add({
+          severity: 'info',
+          summary: 'Success',
+          detail: 'Quiz Deleted',
+        });
+        await this.delay(1000);
+        this.router.navigate(['']);
+      },
+      error: (err) => {
+        this.messageService.add({
+          severity: 'error',
+          summary: 'Unable to delete',
+          detail: err.error,
+          life: 4000,
+        });
+      },
+    });
+  }
+  showDialog() {
+    this.visible = true;
   }
 }

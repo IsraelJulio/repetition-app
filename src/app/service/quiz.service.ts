@@ -18,6 +18,12 @@ export class QuizService {
   put = (quiz: Quiz) =>
     this.http.put(`${environment.ApiUrl}/Quiz/${quiz.id}`, quiz);
   get = () => this.http.get<Quiz[]>(`${environment.ApiUrl}/Quiz`);
+  getByCategory = (top?: string, categoryId?: string) =>
+    this.http.get<Quiz>(
+      `${environment.ApiUrl}/Quiz/Top/${top}/category/${categoryId}`
+    );
   getById = (id: string) =>
     this.http.get<Quiz>(`${environment.ApiUrl}/Quiz/${id}`);
+  delete = (id: number) =>
+    this.http.delete<Quiz>(`${environment.ApiUrl}/Quiz/${id}`);
 }

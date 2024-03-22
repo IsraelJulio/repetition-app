@@ -1,7 +1,20 @@
 <div class="row">
   <div class="col">
-    <h1>{{ "Create Quiz" }}</h1>
+    <h1>{{ title }}</h1>
   </div>
+</div>
+<div
+  class="btn-group"
+  style="display: flex; justify-content: end; margin-bottom: 15px"
+>
+  <p-button
+    *ngIf="title !== 'Create Quiz'"
+    label="Delete"
+    icon="pi pi-trash"
+    styleClass="p-button-md p-button-danger w-100"
+    (click)="showDialog()"
+  >
+  </p-button>
 </div>
 <form [formGroup]="quizForm" (ngSubmit)="onSubmit()" autocomplete="off">
   <table style="display: flex; flex-wrap: wrap">
@@ -24,7 +37,7 @@
           </div>
         </div>
       </td>
-      <td class="col" style="width: 1600px">
+      <td class="col" style="width: 1400px">
         <div class="p-inputgroup">
           <span class="p-inputgroup-addon">
             <i class="pi pi-align-justify"></i>
@@ -38,7 +51,18 @@
           />
         </div>
       </td>
+      <td>
+        <p-dropdown
+          id="category"
+          placeholder="Category"
+          [options]="categories"
+          formControlName="categoryId"
+          optionValue="id"
+          optionLabel="name"
+        ></p-dropdown>
+      </td>
     </tr>
+
     <div class="row" id="secondRow">
       <tr
         formArrayName="questions"
@@ -102,3 +126,25 @@
   </div>
 </form>
 <p-toast></p-toast>
+
+<p-dialog header="Header" [(visible)]="visible" [style]="{ width: '50vw' }">
+  <ng-template pTemplate="header">
+    <span class="text-xl font-bold">Delete quiz</span>
+  </ng-template>
+  <p>Are you sure you want delete this quiz?</p>
+  <br /><br />
+  <ng-template pTemplate="footer">
+    <p-button
+      icon="pi pi-check"
+      (click)="handleDelete()"
+      label="Ok"
+      styleClass="p-button-success"
+    ></p-button>
+    <p-button
+      icon="pi pi-times"
+      (click)="visible = false"
+      label="Cancel"
+      styleClass=" p-button-danger"
+    ></p-button>
+  </ng-template>
+</p-dialog>

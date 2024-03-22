@@ -25,6 +25,9 @@ import { CategoryComponent } from './category/category.component';
 import { TableModule } from 'primeng/table';
 import { DialogService, DynamicDialogModule } from 'primeng/dynamicdialog';
 import { CategoryEditComponent } from './category/category-edit/category-edit.component';
+import { DropdownModule } from 'primeng/dropdown';
+import { DialogModule } from 'primeng/dialog';
+import { BadgeModule } from 'primeng/badge';
 @NgModule({
   declarations: [
     AppComponent,
@@ -54,6 +57,9 @@ import { CategoryEditComponent } from './category/category-edit/category-edit.co
     ToastModule,
     TableModule,
     DynamicDialogModule,
+    DropdownModule,
+    DialogModule,
+    BadgeModule,
   ],
   providers: [MessageService, DialogService],
   bootstrap: [AppComponent],
