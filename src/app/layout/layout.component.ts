@@ -13,10 +13,6 @@ import { Category } from '../domain/category';
 })
 export class LayoutComponent implements OnInit {
   items: MenuItem[] = [];
-  quizItens: MenuItem[] = [];
-  categoryItens: MenuItem[] = [];
-  quizzes: Quiz[] = [];
-  categories: Category[] = [];
   constructor(
     private quizService: QuizService,
     private categoryService: CategoryService
@@ -33,18 +29,12 @@ export class LayoutComponent implements OnInit {
         icon: 'pi pi-fw pi-server',
         items: [
           {
-            label: 'New',
-            icon: 'pi pi-fw pi-plus',
-            items: [
-              {
-                label: 'Bookmark',
-                icon: 'pi pi-fw pi-bookmark',
-              },
-              {
-                label: 'Video',
-                icon: 'pi pi-fw pi-video',
-              },
-            ],
+            label: 'Produtos',
+            icon: PrimeIcons.PENCIL,
+          },
+          {
+            label: 'Visualização no app',
+            icon: PrimeIcons.TABLET,
           },
         ],
       },

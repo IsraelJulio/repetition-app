@@ -4,11 +4,12 @@ import { HomeComponent } from './home/home.component';
 import { QuizComponent } from './quiz/quiz.component';
 import { PlayComponent } from './play/play.component';
 import { CategoryComponent } from './category/category.component';
+import { MyOrdersComponent } from './my-orders/my-orders.component';
 
 const routes: Routes = [
   {
     path: '',
-    component: HomeComponent,
+    component: MyOrdersComponent,
   },
   {
     path: 'quiz',

@@ -1,0 +1,41 @@
+.card{
+  margin-top: 15px;
+}
+:host ::ng-deep .p-panel .p-panel-header#p-panel-0-titlebar  {
+  background-color: #e5712d;
+  color:aliceblue;
+  font-size: large;
+  font-weight: bold;
+}
+
+:host ::ng-deep .p-panel.p-component  .p-toggleable-content#p-panel-0-content > .p-panel-content{
+  background-color: #eb8042;
+  color:aliceblue;
+  font-size: large;
+}
+
+:host ::ng-deep .p-panel .p-panel-header#p-panel-1-titlebar  {
+  background-color: #e69a2d;
+  color:aliceblue;
+  font-size: large;
+  font-weight: bold;
+}
+
+:host ::ng-deep .p-panel.p-component  .p-toggleable-content#p-panel-1-content > .p-panel-content{
+  background-color: #ffac32;
+  color:aliceblue;
+  font-size: large;
+}
+
+:host ::ng-deep .p-panel .p-panel-header#p-panel-2-titlebar  {
+  background-color: #519d48;
+  color:aliceblue;
+  font-size: large;
+  font-weight: bold;
+}
+
+:host ::ng-deep .p-panel.p-component  .p-toggleable-content#p-panel-2-content > .p-panel-content{
+  background-color: #509d48;
+  color:aliceblue;
+  font-size: large;
+}

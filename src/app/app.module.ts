@@ -28,6 +28,9 @@ import { CategoryEditComponent } from './category/category-edit/category-edit.co
 import { DropdownModule } from 'primeng/dropdown';
 import { DialogModule } from 'primeng/dialog';
 import { BadgeModule } from 'primeng/badge';
+import { MyOrdersComponent } from './my-orders/my-orders.component';
+import { SplitterModule } from 'primeng/splitter';
+import { PanelModule } from 'primeng/panel';
 @NgModule({
   declarations: [
     AppComponent,
@@ -37,6 +40,7 @@ import { BadgeModule } from 'primeng/badge';
     PlayComponent,
     CategoryComponent,
     CategoryEditComponent,
+    MyOrdersComponent,
   ],
   imports: [
     BrowserModule,
@@ -60,6 +64,8 @@ import { BadgeModule } from 'primeng/badge';
     DropdownModule,
     DialogModule,
     BadgeModule,
+    SplitterModule,
+    PanelModule,
   ],
   providers: [MessageService, DialogService],
   bootstrap: [AppComponent],
