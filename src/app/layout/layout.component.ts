@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { MenuItem } from 'primeng/api';
+import { MenuItem, PrimeIcons } from 'primeng/api';
 import { QuizService } from '../service/quiz.service';
 import { Quiz } from '../domain/quiz';
 import { lastValueFrom } from 'rxjs';
@@ -21,116 +21,98 @@ export class LayoutComponent implements OnInit {
     private quizService: QuizService,
     private categoryService: CategoryService
   ) {}
-  async ngOnInit() {
-    this.quizzes = await lastValueFrom(this.quizService.get());
-    this.categories = await lastValueFrom(
-      this.categoryService.getAvailableCategory()
-    );
-
-    this.quizzes.forEach((quiz) => {
-      let menuItem: MenuItem = {};
-      menuItem.label = quiz.title;
-      menuItem.icon = 'pi pi-file-o';
-      menuItem.url = `quiz/${quiz.id}`;
-      menuItem.id = quiz.id.toString();
-      this.quizItens.push(menuItem);
-    });
-
-    this.categories.forEach((category) => {
-      let menuItem: MenuItem = {};
-      menuItem.label = category.name;
-      menuItem.icon = 'pi pi-tags';
-      menuItem.id = category.id.toString();
-      this.categoryItens.push(menuItem);
-    });
-
+  ngOnInit() {
     this.items = [
       {
-        label: 'Play',
-        icon: 'pi pi-android',
-        items: [
-          {
-            label: 'Quiz',
-            icon: 'pi pi-file-o',
-            items: this.quizItens.map((item) => {
-              return { ...item, url: `play/${item.id}` };
-            }),
-          },
-          {
-            label: 'Category',
-            icon: 'pi pi-sitemap',
-            url: 'category',
-            items: [
-              {
-                label: 'Top 10',
-                icon: 'pi pi-clock',
-                items: this.categoryItens.map((item) => {
-                  return {
-                    ...item,
-                    url: `play/${item.id}/top/10/category/${item.id}`,
-                  };
-                }),
-              },
-              {
-                label: 'Top 25',
-                icon: 'pi pi-clock',
-                items: this.categoryItens.map((item) => {
-                  return {
-                    ...item,
-                    url: `play/${item.id}/top/25/category/${item.id}`,
-                  };
-                }),
-              },
-              {
-                label: 'Top 50',
-                icon: 'pi pi-clock',
-                items: this.categoryItens.map((item) => {
-                  return {
-                    ...item,
-                    url: `play/${item.id}/top/50/category/${item.id}`,
-                  };
-                }),
-              },
-              {
-                label: 'Top 100',
-                icon: 'pi pi-clock',
-                items: this.categoryItens.map((item) => {
-                  return {
-                    ...item,
-                    url: `play/${item.id}/top/100/category/${item.id}`,
-                  };
-                }),
-              },
-            ],
-          },
-        ],
+        label: 'Meus Pedidos',
+        icon: PrimeIcons.CART_PLUS,
+        badge: '2',
       },
       {
-        label: 'File',
-        icon: 'pi pi-fw pi-file',
+        label: 'Gestor de cardápio',
+        icon: 'pi pi-fw pi-server',
         items: [
           {
             label: 'New',
             icon: 'pi pi-fw pi-plus',
             items: [
-              { label: 'Quiz', icon: 'pi pi-file-o', url: 'quiz' },
-              { label: 'Category', icon: 'pi pi-sitemap', url: 'category' },
+              {
+                label: 'Bookmark',
+                icon: 'pi pi-fw pi-bookmark',
+              },
+              {
+                label: 'Video',
+                icon: 'pi pi-fw pi-video',
+              },
             ],
           },
         ],
       },
       {
-        label: 'Archieve',
-        icon: 'pi pi-fw pi-calendar-times',
+        label: 'Cupons',
+        icon: PrimeIcons.PERCENTAGE,
+      },
+      {
+        label: 'Meu Desempenho',
+        icon: PrimeIcons.CHART_LINE,
+      },
+      {
+        label: 'Fidelidade',
+        icon: PrimeIcons.STAR,
+      },
+      {
+        label: 'Robo',
+        icon: PrimeIcons.PRIME,
         items: [
           {
-            label: 'Edit Quiz',
-            icon: 'pi pi-fw pi-calendar-minus',
-            url: 'home',
-            items: this.quizItens,
+            label: 'Edit',
+            icon: 'pi pi-fw pi-pencil',
+            items: [
+              {
+                label: 'Save',
+                icon: 'pi pi-fw pi-calendar-plus',
+              },
+              {
+                label: 'Delete',
+                icon: 'pi pi-fw pi-calendar-minus',
+              },
+            ],
+          },
+          {
+            label: 'Archieve',
+            icon: 'pi pi-fw pi-calendar-times',
+            items: [
+              {
+                label: 'Remove',
+                icon: 'pi pi-fw pi-calendar-minus',
+              },
+            ],
           },
         ],
+      },
+      {
+        label: 'Configurações',
+        icon: PrimeIcons.COG,
       },
     ];
   }
 }
+
+// items: [
+//   {
+//     label: 'Nexi',
+//     routerLink: ['/report/nexi'],
+//     routerLinkActiveOptions: {
+//       exact: true
+//     },
+//     styleClass: 'menucus'
+//   },
+//   {
+//     label: 'Tico',
+//     routerLink: ['/report/quisque'],
+//     routerLinkActiveOptions: {
+//       exact: true
+//     },
+//     styleClass: 'menucus'
+//   }
+// ]

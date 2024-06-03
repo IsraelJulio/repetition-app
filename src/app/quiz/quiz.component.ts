@@ -22,10 +22,21 @@ let quiz: Quiz;
   providers: [MessageService],
 })
 export class QuizComponent implements OnInit {
-  addQuestionForm(front: string = '', back: string = ''): FormGroup {
+  addQuestionForm(
+    front: string = '',
+    back: string = '',
+    rate: number = 0,
+    rightQuestions: number = 0,
+    wrongQuestions: number = 0,
+    quizId: number = 0
+  ): FormGroup {
     return this.fb.group({
       front: [front, Validators.required],
       back: [back, Validators.required],
+      rate: [rate],
+      rightQuestions: [rightQuestions],
+      wrongQuestions: [wrongQuestions],
+      quizId: [quizId],
     });
   }
   quizForm!: FormGroup;
@@ -64,7 +75,14 @@ export class QuizComponent implements OnInit {
             quiz = response;
             response.questions.forEach((question) => {
               (this.quizForm.get('questions') as FormArray).push(
-                this.addQuestionForm(question.front, question.back)
+                this.addQuestionForm(
+                  question.front,
+                  question.back,
+                  question.rate,
+                  question.rightQuestions,
+                  question.wrongQuestions,
+                  question.quizId
+                )
               );
             });
           },

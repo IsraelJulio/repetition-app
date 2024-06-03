@@ -15,15 +15,8 @@ export class HomeComponent {
     private router: Router,
     private messageService: MessageService
   ) {}
-  quizList: Quiz[] = [];
-  ngOnInit() {
-    this.quizService.get().subscribe({
-      next: (response) => {
-        this.quizList = response;
-      },
-      error: (error) => {},
-    });
-  }
+
+  ngOnInit() {}
 
   trackByTitle(_: number, item: Quiz): string {
     return item.title;
