@@ -5,6 +5,7 @@ import { QuizComponent } from './quiz/quiz.component';
 import { PlayComponent } from './play/play.component';
 import { CategoryComponent } from './category/category.component';
 import { MyOrdersComponent } from './my-orders/my-orders.component';
+import { ProductComponent } from './product/product.component';
 
 const routes: Routes = [
   {
@@ -14,6 +15,10 @@ const routes: Routes = [
   {
     path: 'quiz',
     component: QuizComponent,
+  },
+  {
+    path: 'product',
+    component: ProductComponent,
   },
   {
     path: 'quiz/:id',

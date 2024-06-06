@@ -15,14 +15,13 @@ import { CardModule } from 'primeng/card';
 import { InputTextModule } from 'primeng/inputtext';
 import { CheckboxModule } from 'primeng/checkbox';
 import { RadioButtonModule } from 'primeng/radiobutton';
-import { FormControl, ReactiveFormsModule } from '@angular/forms';
+import { FormControl, ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
-import { MessageService } from 'primeng/api';
+import { MessageService, ConfirmationService } from 'primeng/api';
 import { PlayComponent } from './play/play.component';
 import { ProgressBarModule } from 'primeng/progressbar';
 import { ToastModule } from 'primeng/toast';
 import { CategoryComponent } from './category/category.component';
-import { TableModule } from 'primeng/table';
 import { DialogService, DynamicDialogModule } from 'primeng/dynamicdialog';
 import { CategoryEditComponent } from './category/category-edit/category-edit.component';
 import { DropdownModule } from 'primeng/dropdown';
@@ -31,6 +30,14 @@ import { BadgeModule } from 'primeng/badge';
 import { MyOrdersComponent } from './my-orders/my-orders.component';
 import { SplitterModule } from 'primeng/splitter';
 import { PanelModule } from 'primeng/panel';
+import { ProductComponent } from './product/product.component';
+import { TableModule } from 'primeng/table';
+import { ConfirmDialogModule } from 'primeng/confirmdialog';
+import { FileUploadModule } from 'primeng/fileupload';
+import { InputTextareaModule } from 'primeng/inputtextarea';
+import { ToolbarModule } from 'primeng/toolbar';
+import { TooltipModule } from 'primeng/tooltip';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -41,6 +48,7 @@ import { PanelModule } from 'primeng/panel';
     CategoryComponent,
     CategoryEditComponent,
     MyOrdersComponent,
+    ProductComponent,
   ],
   imports: [
     BrowserModule,
@@ -59,15 +67,21 @@ import { PanelModule } from 'primeng/panel';
     HttpClientModule,
     ProgressBarModule,
     ToastModule,
-    TableModule,
     DynamicDialogModule,
     DropdownModule,
     DialogModule,
     BadgeModule,
     SplitterModule,
     PanelModule,
+    TableModule,
+    InputTextareaModule,
+    ToolbarModule,
+    TooltipModule,
+    FileUploadModule,
+    FormsModule,
+    ConfirmDialogModule,
   ],
-  providers: [MessageService, DialogService],
+  providers: [MessageService, DialogService, ConfirmationService],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

@@ -31,10 +31,18 @@ export class LayoutComponent implements OnInit {
           {
             label: 'Produtos',
             icon: PrimeIcons.PENCIL,
+            routerLink: ['/product'],
+            routerLinkActiveOptions: {
+              exact: true,
+            },
           },
           {
             label: 'Visualização no app',
             icon: PrimeIcons.TABLET,
+          },
+          {
+            label: 'Criar Pedido',
+            icon: PrimeIcons.PLUS,
           },
         ],
       },

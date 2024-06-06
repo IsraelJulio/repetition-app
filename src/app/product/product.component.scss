@@ -1,0 +1,23 @@
+:host ::ng-deep .p-dialog .product-image {
+  width: 150px;
+  margin: 0 auto 2rem auto;
+  display: block;
+}
+.p-checkbox .p-checkbox-box {
+  margin-top: 10px;
+  border: 2px solid #ced4da;
+  background: #ffffff;
+  width: 60px;
+  height: 25px;
+  color: #495057;
+  border-radius: 6px;
+  transition: background-color 0.2s, color 0.2s, border-color 0.2s, box-shadow 0.2s;
+}
+label{
+  font-size: large;
+}
+.gap-2{
+  margin-top: 5px;
+
+}
+

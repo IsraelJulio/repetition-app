@@ -4,6 +4,7 @@ import { Injectable } from '@angular/core';
   providedIn: 'root',
 })
 export class ProductService {
+  constructor() {}
   getProductsData() {
     return [
       {
@@ -15,7 +16,7 @@ export class ProductService {
         price: 65,
         category: 'Accessories',
         quantity: 24,
-        inventoryStatus: 'INSTOCK',
+        status: 'ATIVADO',
         rating: 5,
       },
       {
@@ -27,7 +28,7 @@ export class ProductService {
         price: 72,
         category: 'Accessories',
         quantity: 61,
-        inventoryStatus: 'OUTOFSTOCK',
+        status: 'DESATIVADO',
         rating: 4,
       },
       {
@@ -39,7 +40,7 @@ export class ProductService {
         price: 79,
         category: 'Fitness',
         quantity: 2,
-        inventoryStatus: 'LOWSTOCK',
+        status: 'ATIVADO',
         rating: 3,
       },
       {
@@ -51,7 +52,7 @@ export class ProductService {
         price: 29,
         category: 'Clothing',
         quantity: 25,
-        inventoryStatus: 'INSTOCK',
+        status: 'ATIVADO',
         rating: 5,
       },
       {
@@ -63,7 +64,7 @@ export class ProductService {
         price: 15,
         category: 'Accessories',
         quantity: 73,
-        inventoryStatus: 'INSTOCK',
+        status: 'ATIVADO',
         rating: 4,
       },
       {
@@ -75,7 +76,7 @@ export class ProductService {
         price: 120,
         category: 'Accessories',
         quantity: 0,
-        inventoryStatus: 'OUTOFSTOCK',
+        status: 'DESATIVADO',
         rating: 4,
       },
       {
@@ -87,7 +88,7 @@ export class ProductService {
         price: 32,
         category: 'Accessories',
         quantity: 5,
-        inventoryStatus: 'LOWSTOCK',
+        status: 'ATIVADO',
         rating: 3,
       },
       {
@@ -99,7 +100,7 @@ export class ProductService {
         price: 34,
         category: 'Accessories',
         quantity: 23,
-        inventoryStatus: 'INSTOCK',
+        status: 'ATIVADO',
         rating: 5,
       },
       {
@@ -111,7 +112,7 @@ export class ProductService {
         price: 99,
         category: 'Electronics',
         quantity: 2,
-        inventoryStatus: 'LOWSTOCK',
+        status: 'ATIVADO',
         rating: 4,
       },
       {
@@ -123,7 +124,7 @@ export class ProductService {
         price: 299,
         category: 'Electronics',
         quantity: 63,
-        inventoryStatus: 'INSTOCK',
+        status: 'ATIVADO',
         rating: 3,
       },
       {
@@ -135,7 +136,7 @@ export class ProductService {
         price: 24,
         category: 'Accessories',
         quantity: 0,
-        inventoryStatus: 'OUTOFSTOCK',
+        status: 'DESATIVADO',
         rating: 4,
       },
       {
@@ -147,7 +148,7 @@ export class ProductService {
         price: 89,
         category: 'Electronics',
         quantity: 23,
-        inventoryStatus: 'INSTOCK',
+        status: 'ATIVADO',
         rating: 4,
       },
       {
@@ -159,7 +160,7 @@ export class ProductService {
         price: 49,
         category: 'Clothing',
         quantity: 74,
-        inventoryStatus: 'INSTOCK',
+        status: 'ATIVADO',
         rating: 5,
       },
       {
@@ -171,7 +172,7 @@ export class ProductService {
         price: 48,
         category: 'Clothing',
         quantity: 0,
-        inventoryStatus: 'OUTOFSTOCK',
+        status: 'DESATIVADO',
         rating: 3,
       },
       {
@@ -183,7 +184,7 @@ export class ProductService {
         price: 175,
         category: 'Electronics',
         quantity: 8,
-        inventoryStatus: 'LOWSTOCK',
+        status: 'ATIVADO',
         rating: 5,
       },
       {
@@ -195,7 +196,7 @@ export class ProductService {
         price: 49,
         category: 'Clothing',
         quantity: 34,
-        inventoryStatus: 'INSTOCK',
+        status: 'ATIVADO',
         rating: 4,
       },
       {
@@ -207,7 +208,7 @@ export class ProductService {
         price: 79,
         category: 'Fitness',
         quantity: 12,
-        inventoryStatus: 'INSTOCK',
+        status: 'ATIVADO',
         rating: 3,
       },
       {
@@ -219,7 +220,7 @@ export class ProductService {
         price: 85,
         category: 'Clothing',
         quantity: 42,
-        inventoryStatus: 'INSTOCK',
+        status: 'ATIVADO',
         rating: 4,
       },
       {
@@ -231,7 +232,7 @@ export class ProductService {
         price: 56,
         category: 'Accessories',
         quantity: 41,
-        inventoryStatus: 'INSTOCK',
+        status: 'ATIVADO',
         rating: 5,
       },
       {
@@ -243,7 +244,7 @@ export class ProductService {
         price: 79,
         category: 'Fitness',
         quantity: 63,
-        inventoryStatus: 'INSTOCK',
+        status: 'ATIVADO',
         rating: 4,
       },
       {
@@ -255,7 +256,7 @@ export class ProductService {
         price: 110,
         category: 'Accessories',
         quantity: 0,
-        inventoryStatus: 'OUTOFSTOCK',
+        status: 'DESATIVADO',
         rating: 4,
       },
       {
@@ -267,7 +268,7 @@ export class ProductService {
         price: 79,
         category: 'Fitness',
         quantity: 6,
-        inventoryStatus: 'LOWSTOCK',
+        status: 'ATIVADO',
         rating: 3,
       },
       {
@@ -279,7 +280,7 @@ export class ProductService {
         price: 45,
         category: 'Accessories',
         quantity: 62,
-        inventoryStatus: 'INSTOCK',
+        status: 'ATIVADO',
         rating: 4,
       },
       {
@@ -291,7 +292,7 @@ export class ProductService {
         price: 49,
         category: 'Clothing',
         quantity: 2,
-        inventoryStatus: 'LOWSTOCK',
+        status: 'ATIVADO',
         rating: 5,
       },
       {
@@ -303,7 +304,7 @@ export class ProductService {
         price: 64,
         category: 'Clothing',
         quantity: 0,
-        inventoryStatus: 'INSTOCK',
+        status: 'ATIVADO',
         rating: 4,
       },
       {
@@ -315,7 +316,7 @@ export class ProductService {
         price: 78,
         category: 'Clothing',
         quantity: 52,
-        inventoryStatus: 'INSTOCK',
+        status: 'ATIVADO',
         rating: 4,
       },
       {
@@ -327,7 +328,7 @@ export class ProductService {
         price: 49,
         category: 'Clothing',
         quantity: 3,
-        inventoryStatus: 'LOWSTOCK',
+        status: 'ATIVADO',
         rating: 3,
       },
       {
@@ -339,7 +340,7 @@ export class ProductService {
         price: 89,
         category: 'Electronics',
         quantity: 35,
-        inventoryStatus: 'INSTOCK',
+        status: 'ATIVADO',
         rating: 3,
       },
       {
@@ -351,7 +352,7 @@ export class ProductService {
         price: 20,
         category: 'Fitness',
         quantity: 15,
-        inventoryStatus: 'INSTOCK',
+        status: 'ATIVADO',
         rating: 5,
       },
       {
@@ -363,7 +364,7 @@ export class ProductService {
         price: 20,
         category: 'Fitness',
         quantity: 25,
-        inventoryStatus: 'INSTOCK',
+        status: 'ATIVADO',
         rating: 8,
       },
     ];
@@ -380,7 +381,7 @@ export class ProductService {
         price: 65,
         category: 'Accessories',
         quantity: 24,
-        inventoryStatus: 'INSTOCK',
+        status: 'ATIVADO',
         rating: 5,
         orders: [
           {
@@ -430,7 +431,7 @@ export class ProductService {
         price: 72,
         category: 'Accessories',
         quantity: 61,
-        inventoryStatus: 'INSTOCK',
+        status: 'ATIVADO',
         rating: 4,
         orders: [
           {
@@ -462,7 +463,7 @@ export class ProductService {
         price: 79,
         category: 'Fitness',
         quantity: 2,
-        inventoryStatus: 'LOWSTOCK',
+        status: 'ATIVADO',
         rating: 3,
         orders: [
           {
@@ -494,7 +495,7 @@ export class ProductService {
         price: 29,
         category: 'Clothing',
         quantity: 25,
-        inventoryStatus: 'INSTOCK',
+        status: 'ATIVADO',
         rating: 5,
         orders: [],
       },
@@ -507,7 +508,7 @@ export class ProductService {
         price: 15,
         category: 'Accessories',
         quantity: 73,
-        inventoryStatus: 'INSTOCK',
+        status: 'ATIVADO',
         rating: 4,
         orders: [
           {
@@ -539,7 +540,7 @@ export class ProductService {
         price: 120,
         category: 'Accessories',
         quantity: 0,
-        inventoryStatus: 'OUTOFSTOCK',
+        status: 'DESATIVADO',
         rating: 4,
         orders: [
           {
@@ -580,7 +581,7 @@ export class ProductService {
         price: 32,
         category: 'Accessories',
         quantity: 5,
-        inventoryStatus: 'LOWSTOCK',
+        status: 'ATIVADO',
         rating: 3,
         orders: [
           {
@@ -612,7 +613,7 @@ export class ProductService {
         price: 34,
         category: 'Accessories',
         quantity: 23,
-        inventoryStatus: 'INSTOCK',
+        status: 'ATIVADO',
         rating: 5,
         orders: [
           {
@@ -635,7 +636,7 @@ export class ProductService {
         price: 99,
         category: 'Electronics',
         quantity: 2,
-        inventoryStatus: 'LOWSTOCK',
+        status: 'ATIVADO',
         rating: 4,
         orders: [
           {
@@ -667,7 +668,7 @@ export class ProductService {
         price: 299,
         category: 'Electronics',
         quantity: 63,
-        inventoryStatus: 'INSTOCK',
+        status: 'ATIVADO',
         rating: 3,
         orders: [
           {
@@ -717,7 +718,7 @@ export class ProductService {
         price: 24,
         category: 'Accessories',
         quantity: 0,
-        inventoryStatus: 'OUTOFSTOCK',
+        status: 'DESATIVADO',
         rating: 4,
         orders: [
           {
@@ -749,7 +750,7 @@ export class ProductService {
         price: 89,
         category: 'Electronics',
         quantity: 23,
-        inventoryStatus: 'INSTOCK',
+        status: 'ATIVADO',
         rating: 4,
         orders: [
           {
@@ -772,7 +773,7 @@ export class ProductService {
         price: 49,
         category: 'Clothing',
         quantity: 74,
-        inventoryStatus: 'INSTOCK',
+        status: 'ATIVADO',
         rating: 5,
         orders: [
           {
@@ -804,7 +805,7 @@ export class ProductService {
         price: 48,
         category: 'Clothing',
         quantity: 0,
-        inventoryStatus: 'OUTOFSTOCK',
+        status: 'DESATIVADO',
         rating: 3,
         orders: [
           {
@@ -827,7 +828,7 @@ export class ProductService {
         price: 175,
         category: 'Electronics',
         quantity: 8,
-        inventoryStatus: 'LOWSTOCK',
+        status: 'ATIVADO',
         rating: 5,
         orders: [
           {
@@ -859,7 +860,7 @@ export class ProductService {
         price: 49,
         category: 'Clothing',
         quantity: 34,
-        inventoryStatus: 'INSTOCK',
+        status: 'ATIVADO',
         rating: 4,
         orders: [
           {
@@ -882,7 +883,7 @@ export class ProductService {
         price: 79,
         category: 'Fitness',
         quantity: 12,
-        inventoryStatus: 'INSTOCK',
+        status: 'ATIVADO',
         rating: 3,
         orders: [],
       },
@@ -895,7 +896,7 @@ export class ProductService {
         price: 85,
         category: 'Clothing',
         quantity: 42,
-        inventoryStatus: 'INSTOCK',
+        status: 'ATIVADO',
         rating: 4,
         orders: [
           {
@@ -918,7 +919,7 @@ export class ProductService {
         price: 56,
         category: 'Accessories',
         quantity: 41,
-        inventoryStatus: 'INSTOCK',
+        status: 'ATIVADO',
         rating: 5,
         orders: [
           {
@@ -950,7 +951,7 @@ export class ProductService {
         price: 79,
         category: 'Fitness',
         quantity: 63,
-        inventoryStatus: 'INSTOCK',
+        status: 'ATIVADO',
         rating: 4,
         orders: [],
       },
@@ -963,7 +964,7 @@ export class ProductService {
         price: 110,
         category: 'Accessories',
         quantity: 0,
-        inventoryStatus: 'OUTOFSTOCK',
+        status: 'DESATIVADO',
         rating: 4,
         orders: [
           {
@@ -995,7 +996,7 @@ export class ProductService {
         price: 79,
         category: 'Fitness',
         quantity: 6,
-        inventoryStatus: 'LOWSTOCK',
+        status: 'ATIVADO',
         rating: 3,
         orders: [
           {
@@ -1018,7 +1019,7 @@ export class ProductService {
         price: 45,
         category: 'Accessories',
         quantity: 62,
-        inventoryStatus: 'INSTOCK',
+        status: 'ATIVADO',
         rating: 4,
         orders: [
           {
@@ -1050,7 +1051,7 @@ export class ProductService {
         price: 49,
         category: 'Clothing',
         quantity: 2,
-        inventoryStatus: 'LOWSTOCK',
+        status: 'ATIVADO',
         rating: 5,
         orders: [
           {
@@ -1073,7 +1074,7 @@ export class ProductService {
         price: 64,
         category: 'Clothing',
         quantity: 0,
-        inventoryStatus: 'INSTOCK',
+        status: 'ATIVADO',
         rating: 4,
         orders: [],
       },
@@ -1086,7 +1087,7 @@ export class ProductService {
         price: 78,
         category: 'Clothing',
         quantity: 52,
-        inventoryStatus: 'INSTOCK',
+        status: 'ATIVADO',
         rating: 4,
         orders: [
           {
@@ -1118,7 +1119,7 @@ export class ProductService {
         price: 49,
         category: 'Clothing',
         quantity: 3,
-        inventoryStatus: 'LOWSTOCK',
+        status: 'ATIVADO',
         rating: 3,
         orders: [
           {
@@ -1141,7 +1142,7 @@ export class ProductService {
         price: 89,
         category: 'Electronics',
         quantity: 35,
-        inventoryStatus: 'INSTOCK',
+        status: 'ATIVADO',
         rating: 3,
         orders: [
           {
@@ -1173,7 +1174,7 @@ export class ProductService {
         price: 20,
         category: 'Fitness',
         quantity: 15,
-        inventoryStatus: 'INSTOCK',
+        status: 'ATIVADO',
         rating: 5,
         orders: [],
       },
@@ -1186,7 +1187,7 @@ export class ProductService {
         price: 20,
         category: 'Fitness',
         quantity: 25,
-        inventoryStatus: 'INSTOCK',
+        status: 'ATIVADO',
         rating: 8,
         orders: [
           {
