@@ -6,11 +6,13 @@ import { PlayComponent } from './play/play.component';
 import { CategoryComponent } from './category/category.component';
 import { MyOrdersComponent } from './my-orders/my-orders.component';
 import { ProductComponent } from './product/product.component';
+import { AppLayoutComponent } from './layout/app.layout.component';
 
 const routes: Routes = [
   {
     path: '',
-    component: MyOrdersComponent,
+    component: AppLayoutComponent,
+    children: [{ path: '', component: MyOrdersComponent }],
   },
   {
     path: 'quiz',

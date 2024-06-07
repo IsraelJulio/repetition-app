@@ -37,13 +37,13 @@ import { FileUploadModule } from 'primeng/fileupload';
 import { InputTextareaModule } from 'primeng/inputtextarea';
 import { ToolbarModule } from 'primeng/toolbar';
 import { TooltipModule } from 'primeng/tooltip';
-
+import { AppLayoutModule } from './layout/app.layout.module';
 @NgModule({
   declarations: [
     AppComponent,
     QuizComponent,
     HomeComponent,
-    LayoutComponent,
+
     PlayComponent,
     CategoryComponent,
     CategoryEditComponent,
@@ -80,6 +80,7 @@ import { TooltipModule } from 'primeng/tooltip';
     FileUploadModule,
     FormsModule,
     ConfirmDialogModule,
+    AppLayoutModule,
   ],
   providers: [MessageService, DialogService, ConfirmationService],
   bootstrap: [AppComponent],
