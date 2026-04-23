@@ -106,6 +106,17 @@ ng help
 ```
 
 Ou consulte a documentação oficial do Angular CLI:
+
+## 📌 Observações
+
+Este projeto serve como base para evolução de uma aplicação focada em aprendizado contínuo e repetição inteligente, podendo ser expandido com funcionalidades como:
+
+* Sistema de flashcards
+* Algoritmos de repetição espaçada
+* Dashboard de progresso
+* Integração com APIs externas
+
+---
 https://angular.io/cli
 
 ---
