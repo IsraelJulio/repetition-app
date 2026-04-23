@@ -1,12 +1,12 @@
 # Repetition
 
-**Repetition** é uma aplicação web desenvolvida com Angular que tem como objetivo organizar, repetir e reforçar informações importantes ao longo do tempo — ideal para estudos, memorização e produtividade pessoal.
+**Repetition** is a web application built with Angular, designed to help users organize, revisit, and reinforce important information over time — ideal for studying, memorization, and personal productivity.
 
-O projeto utiliza uma estrutura moderna baseada no Angular CLI, proporcionando uma base sólida, escalável e de fácil manutenção para desenvolvimento front-end.
+The project uses a modern structure powered by Angular CLI, providing a solid, scalable, and maintainable foundation for front-end development.
 
 ---
 
-## 🚀 Tecnologias
+## 🚀 Technologies
 
 * Angular (v15.2.10)
 * TypeScript
@@ -15,45 +15,44 @@ O projeto utiliza uma estrutura moderna baseada no Angular CLI, proporcionando u
 
 ---
 
+## 💡 Purpose
 
-## 💡 Propósito
+**Repetition** was created to help users:
 
-O **Repetition** foi criado para ajudar usuários a:
-
-* Revisar conteúdos de forma contínua
-* Melhorar retenção de conhecimento
-* Organizar informações importantes
-* Criar ciclos de repetição eficientes (ex: estudos, tarefas, hábitos)
+* Continuously review content
+* Improve knowledge retention
+* Organize important information
+* Build efficient repetition cycles (e.g., studying, tasks, habits)
 
 ---
 
-## 🛠️ Servidor de desenvolvimento
+## 🛠️ Development server
 
-Execute:
+Run:
 
 ```bash
 ng serve
 ```
 
-Acesse no navegador:
+Open your browser at:
 
 ```
 http://localhost:4200/
 ```
 
-A aplicação será recarregada automaticamente ao detectar alterações nos arquivos.
+The application will automatically reload if you change any of the source files.
 
 ---
 
-## ⚙️ Gerando código
+## ⚙️ Code scaffolding
 
-Para criar novos elementos:
+To generate a new component:
 
 ```bash
-ng generate component nome-do-componente
+ng generate component component-name
 ```
 
-Outras opções disponíveis:
+Other available options:
 
 ```bash
 ng generate directive|pipe|service|class|guard|interface|enum|module
@@ -63,61 +62,62 @@ ng generate directive|pipe|service|class|guard|interface|enum|module
 
 ## 📦 Build
 
-Para compilar o projeto:
+To build the project:
 
 ```bash
 ng build
 ```
 
-Os arquivos finais serão gerados na pasta:
+The build artifacts will be stored in the:
 
 ```
 dist/
 ```
 
+directory.
+
 ---
 
-## 🧪 Testes
+## 🧪 Testing
 
-### Testes unitários
+### Unit tests
 
 ```bash
 ng test
 ```
 
-Executados com Karma.
+Executed using Karma.
 
-### Testes end-to-end
+### End-to-end tests
 
 ```bash
 ng e2e
 ```
 
-> É necessário configurar previamente uma ferramenta de testes e2e.
+> You need to configure an end-to-end testing framework before running this command.
 
 ---
 
-## 📚 Ajuda adicional
+## 📚 Further help
 
-Para mais informações:
+To get more help:
 
 ```bash
 ng help
 ```
 
-Ou consulte a documentação oficial do Angular CLI:
-
-## 📌 Observações
-
-Este projeto serve como base para evolução de uma aplicação focada em aprendizado contínuo e repetição inteligente, podendo ser expandido com funcionalidades como:
-
-* Sistema de flashcards
-* Algoritmos de repetição espaçada
-* Dashboard de progresso
-* Integração com APIs externas
-
----
+Or check the official Angular CLI documentation:
 https://angular.io/cli
 
 ---
 
+## 📌 Notes
+
+This project serves as a foundation for building a continuous learning and smart repetition application, and can be extended with features such as:
+
+* Flashcard system
+* Spaced repetition algorithms
+* Progress dashboard
+* External API integrations
+
+---
