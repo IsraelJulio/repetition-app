@@ -1,55 +1,77 @@
-<div class="w-100 h-100 container-fluid">
-  <div class="pt-4">
-    <div class="row">
-      <div class="col">
-        <h1>{{ "Category" }}</h1>
-      </div>
+<div class="category-page">
+  <div class="page-header">
+    <div>
+      <h1>Categorias</h1>
+      <p>Gerencie as categorias dos seus quizzes.</p>
     </div>
-    <div class="row">
-      <div class="col">
-        <section class="table-section">
-          <p-button
-            label="New"
-            icon="pi pi-plus"
-            styleClass=" p-button-sm p-button-success"
-            (onClick)="createCategory()"
-          ></p-button>
-          <br />
-          <br />
-          <p-table
-            [value]="categoryList"
-            [tableStyle]="{ 'min-width': '50rem' }"
-          >
-            <ng-template pTemplate="header">
-              <tr>
-                <th>Id</th>
-                <th style="width: 80%">Name</th>
-                <th style="text-align: center">Action</th>
-              </tr>
-            </ng-template>
-            <ng-template pTemplate="body" let-category>
-              <tr>
-                <td>{{ category.id }}</td>
-                <td>{{ category.name }}</td>
-                <td style="display: flex; justify-content: space-around">
-                  <p-button
-                    icon="pi pi-pencil"
-                    pTooltip="Edit"
-                    styleClass="p-button-info"
-                    (onClick)="btnAction(category.id, 'edit')"
-                  ></p-button
-                  ><p-button
-                    icon="pi pi-trash"
-                    pTooltip="Delete"
-                    styleClass="p-button-danger"
-                    (onClick)="btnAction(category.id, 'delete')"
-                  ></p-button>
-                </td>
-              </tr>
-            </ng-template>
-          </p-table>
-        </section>
-      </div>
-    </div>
+
+    <p-button
+      label="Nova categoria"
+      icon="pi pi-plus"
+      styleClass="p-button-success"
+      type="button"
+      (onClick)="createCategory()"
+    ></p-button>
+  </div>
+
+  <div class="card">
+    <p-table
+      [value]="categoryList"
+      [paginator]="true"
+      [rows]="8"
+      responsiveLayout="scroll"
+      styleClass="modern-table"
+    >
+      <ng-template pTemplate="header">
+        <tr>
+          <th style="width: 90px">ID</th>
+          <th>Nome</th>
+          <th style="width: 160px; text-align: center">Ações</th>
+        </tr>
+      </ng-template>
+
+      <ng-template pTemplate="body" let-category>
+        <tr>
+          <td>
+            <span class="id-badge">#{{ category.id }}</span>
+          </td>
+
+          <td>
+            <strong>{{ category.name }}</strong>
+          </td>
+
+          <td>
+            <div class="table-actions">
+              <p-button
+                icon="pi pi-pencil"
+                pTooltip="Editar"
+                styleClass="p-button-rounded p-button-text p-button-info"
+                type="button"
+                (onClick)="btnAction(category.id, 'edit')"
+              ></p-button>
+
+              <p-button
+                icon="pi pi-trash"
+                pTooltip="Excluir"
+                styleClass="p-button-rounded p-button-text p-button-danger"
+                type="button"
+                (onClick)="btnAction(category.id, 'delete')"
+              ></p-button>
+            </div>
+          </td>
+        </tr>
+      </ng-template>
+
+      <ng-template pTemplate="emptymessage">
+        <tr>
+          <td colspan="3">
+            <div class="empty-state">
+              <i class="pi pi-folder-open"></i>
+              <p>Nenhuma categoria cadastrada.</p>
+            </div>
+          </td>
+        </tr>
+      </ng-template>
+    </p-table>
   </div>
 </div>
