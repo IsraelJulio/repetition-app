@@ -1,150 +1,166 @@
-<div class="row">
-  <div class="col">
-    <h1>{{ title }}</h1>
+<div class="quiz-page">
+  <div class="page-header">
+    <div>
+      <h1>{{ title }}</h1>
+      <p>Configure as informações do quiz e suas perguntas.</p>
+    </div>
+
+    <p-button
+      *ngIf="title !== 'Create Quiz'"
+      label="Excluir"
+      icon="pi pi-trash"
+      styleClass="p-button-danger"
+      (click)="showDialog()"
+    ></p-button>
   </div>
-</div>
-<div
-  class="btn-group"
-  style="display: flex; justify-content: end; margin-bottom: 15px"
->
-  <p-button
-    *ngIf="title !== 'Create Quiz'"
-    label="Delete"
-    icon="pi pi-trash"
-    styleClass="p-button-md p-button-danger w-100"
-    (click)="showDialog()"
-  >
-  </p-button>
-</div>
-<form [formGroup]="quizForm" (ngSubmit)="onSubmit()" autocomplete="off">
-  <table style="display: flex; flex-wrap: wrap">
-    <tr style="margin-bottom: 50px">
-      <td>
-        <div class="row" id="firstRow">
-          <div class="col" style="width: 600px">
-            <div class="p-inputgroup">
-              <span class="p-inputgroup-addon">
-                <i class="pi pi-bookmark-fill"></i>
+
+  <form [formGroup]="quizForm" (ngSubmit)="onSubmit()" autocomplete="off">
+    <div class="card">
+      <h2>Informações do quiz</h2>
+
+      <div class="form-grid">
+        <div class="field">
+          <label>Título</label>
+          <span class="p-input-icon-left">
+            <i class="pi pi-bookmark-fill"></i>
+            <input
+              pInputText
+              type="text"
+              formControlName="title"
+              placeholder="Digite o título"
+            />
+          </span>
+        </div>
+
+        <div class="field">
+          <label>Descrição</label>
+          <span class="p-input-icon-left">
+            <i class="pi pi-align-justify"></i>
+            <input
+              pInputText
+              type="text"
+              formControlName="description"
+              placeholder="Digite a descrição"
+            />
+          </span>
+        </div>
+
+        <div class="field">
+          <label>Categoria</label>
+          <p-dropdown
+            placeholder="Selecione"
+            [options]="categories"
+            formControlName="categoryId"
+            optionValue="id"
+            optionLabel="name"
+          ></p-dropdown>
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="section-header">
+        <h2>Perguntas</h2>
+
+        <div class="actions">
+          <p-button
+            label="Adicionar"
+            icon="pi pi-plus"
+            styleClass="p-button-sm"
+            type="button"
+            (click)="addNewRow()"
+          ></p-button>
+
+          <p-button
+            label="Remover"
+            icon="pi pi-times"
+            styleClass="p-button-sm p-button-danger"
+            type="button"
+            (click)="removeRow()"
+          ></p-button>
+        </div>
+      </div>
+
+      <div formArrayName="questions" class="questions-list">
+        <div
+          class="question-card"
+          *ngFor="let question of getControls(); let i = index"
+          [formGroupName]="i"
+        >
+          <div class="question-number">{{ i + 1 }}</div>
+
+          <div class="question-fields">
+            <div class="field">
+              <label>Frente</label>
+              <span class="p-input-icon-left">
+                <i class="pi pi-chevron-left"></i>
+                <input
+                  pInputText
+                  type="text"
+                  [id]="'front' + i"
+                  formControlName="front"
+                  placeholder="Frente do cartão"
+                />
               </span>
-              <input
-                type="text"
-                id="inputTitle"
-                pInputText
-                formControlName="title"
-                placeholder="Title"
-              />
+            </div>
+
+            <div class="field">
+              <label>Verso</label>
+              <span class="p-input-icon-left">
+                <i class="pi pi-chevron-right"></i>
+                <input
+                  pInputText
+                  type="text"
+                  [id]="'back' + i"
+                  formControlName="back"
+                  placeholder="Verso do cartão"
+                />
+              </span>
             </div>
           </div>
         </div>
-      </td>
-      <td class="col" style="width: 1400px">
-        <div class="p-inputgroup">
-          <span class="p-inputgroup-addon">
-            <i class="pi pi-align-justify"></i>
-          </span>
-          <input
-            type="text"
-            id="description"
-            pInputText
-            formControlName="description"
-            placeholder="Description"
-          />
-        </div>
-      </td>
-      <td>
-        <p-dropdown
-          id="category"
-          placeholder="Category"
-          [options]="categories"
-          formControlName="categoryId"
-          optionValue="id"
-          optionLabel="name"
-        ></p-dropdown>
-      </td>
-    </tr>
-
-    <div class="row" id="secondRow">
-      <tr
-        formArrayName="questions"
-        *ngFor="let question of getControls(); let i = index"
-      >
-        <div [formGroupName]="i">
-          <td class="col" style="width: 1200px">
-            <div class="p-inputgroup">
-              <span class="p-inputgroup-addon">
-                <i class="pi pi-chevron-left"></i>
-              </span>
-              <input
-                type="text"
-                [id]="'front' + i"
-                pInputText
-                formControlName="front"
-                placeholder="Front Side"
-              />
-            </div>
-          </td>
-          <td class="col" style="width: 1200px">
-            <div class="p-inputgroup">
-              <span class="p-inputgroup-addon">
-                <i class="pi pi-chevron-right"></i>
-              </span>
-              <input
-                type="text"
-                id="back"
-                pInputText
-                formControlName="back"
-                placeholder="Back Side"
-              />
-            </div>
-          </td>
-        </div>
-      </tr>
+      </div>
     </div>
-  </table>
-  <div class="buttons" style="display: flex; justify-content: flex-end">
-    <p-button
-      label="Add new row"
-      icon="pi pi-plus"
-      styleClass="p-button-sm"
-      (click)="addNewRow()"
-    ></p-button>
-    <p-button
-      label="Remove last row"
-      icon="pi pi-times"
-      styleClass="p-button-sm p-button-danger"
-      [style]="{ 'margin-left': '.5em' }"
-      (click)="removeRow()"
-    ></p-button>
-    <p-button
-      label="save"
-      icon="pi pi-check"
-      styleClass=" p-button-sm p-button-success"
-      type="submit"
-      [style]="{ 'margin-left': '.5em' }"
-      [disabled]="!quizForm.valid"
-    ></p-button>
-  </div>
-</form>
+
+    <div class="footer-actions">
+      <p-button
+        label="Salvar"
+        icon="pi pi-check"
+        styleClass="p-button-success"
+        type="submit"
+        [disabled]="!quizForm.valid"
+      ></p-button>
+    </div>
+  </form>
+</div>
+
 <p-toast></p-toast>
 
-<p-dialog header="Header" [(visible)]="visible" [style]="{ width: '50vw' }">
+<p-dialog
+  [(visible)]="visible"
+  [modal]="true"
+  [style]="{ width: '420px' }"
+  styleClass="delete-dialog"
+>
   <ng-template pTemplate="header">
-    <span class="text-xl font-bold">Delete quiz</span>
+    <span class="dialog-title">Excluir quiz</span>
   </ng-template>
-  <p>Are you sure you want delete this quiz?</p>
-  <br /><br />
+
+  <p>Tem certeza que deseja excluir este quiz?</p>
+
   <ng-template pTemplate="footer">
     <p-button
-      icon="pi pi-check"
-      (click)="handleDelete()"
-      label="Ok"
-      styleClass="p-button-success"
-    ></p-button>
-    <p-button
       icon="pi pi-times"
+      label="Cancelar"
+      styleClass="p-button-text"
       (click)="visible = false"
-      label="Cancel"
-      styleClass=" p-button-danger"
+    ></p-button>
+
+    <p-button
+      icon="pi pi-check"
+      label="Excluir"
+      styleClass="p-button-danger"
+      (click)="handleDelete()"
     ></p-button>
   </ng-template>
 </p-dialog>
